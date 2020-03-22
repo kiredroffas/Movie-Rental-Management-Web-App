@@ -1,10 +1,7 @@
-﻿@using Movie_Rental_Management_Web_App.Models
-@model Movie_Rental_Management_Web_App.Models.Movie
+﻿@model Movie_Rental_Management_Web_App.ViewModels.RandomMovieViewModel
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<h2>@Model.Name</h2>*@
-<h2>@( ((Movie) ViewData["Movie"]).Name )</h2>
-
+<h2>@Model.Movie.Name</h2>

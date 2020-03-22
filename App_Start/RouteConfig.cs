@@ -13,13 +13,13 @@ namespace Movie_Rental_Management_Web_App
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapMvcAttributeRoutes();
+            //routes.MapMvcAttributeRoutes();
 
-            /*routes.MapRoute("MoviesByReleaseDate",
+            routes.MapRoute("MoviesByReleaseDate",
                             "movies/released/{year}/{month}",
                             new { controller = "Movies", action = "ByReleaseDate"},
                             new { year = @"\d{4}", month = @"\d{2}" });
-                            //year = @"2015|2016" can constrain year to only be certain values */
+                            //year = @"2015|2016" can constrain year to only be certain values 
 
             routes.MapRoute(
                 name: "Default",

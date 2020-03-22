@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Movie_Rental_Management_Web_App.Models;
+using Movie_Rental_Management_Web_App.ViewModels;
 
 namespace Movie_Rental_Management_Web_App.Controllers
 {
@@ -13,11 +14,20 @@ namespace Movie_Rental_Management_Web_App.Controllers
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Shrek!" };
+            var customers = new List<Customer>
+            {
+                new Customer { Name = "Customer 1"},
+                new Customer { Name = "Customer 2"}
+            };
 
-            ViewData["Movie"] = movie;
-            return View();
-            //return View(movie);              //Return Shrek!
-            
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+
+            return View(viewModel);              //Return Shrek!
+
             //Other types of Action Results:
             //return Content("Hello World");   //Return plain content
             //return HttpNotFound();           //Return generic 404 error
@@ -50,7 +60,7 @@ namespace Movie_Rental_Management_Web_App.Controllers
 
         //Custom route
         //https://localhost:44341/movies/released/2015/04
-        [Route("movies/released/{year}/{month:regex(\\d{4}):range(1,12)}")]
+        //[Route("movies/released/{year}/{month:regex(\\d{4}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content(year + "/" + month);
