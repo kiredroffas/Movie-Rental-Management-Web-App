@@ -27,24 +27,30 @@ namespace Movie_Rental_Management_Web_App.Controllers
         //Set up in App_Start/RouteConfig.cs
         //https://localhost:44341/movies/edit/1
         //https://localhost:44341/movies/edit?id=2
-
-        public ActionResult Edit(int id)
-        {
-            return Content("id=" + id);
-        }
+        //public ActionResult Edit(int id)
+        //{
+        //    return Content("id=" + id);
+        //}
 
         // movies
         //https://localhost:44341/movies?pageIndex=2&sortBy=ReleaseDate
-        public ActionResult Index(int? pageIndex, string sortBy)
-        {
-            if (!pageIndex.HasValue)
-                pageIndex = 1;
+        //public ActionResult Index(int? pageIndex, string sortBy)
+        //{
+        //    if (!pageIndex.HasValue)
+        //        pageIndex = 1;
+        //
+        //    if (String.IsNullOrWhiteSpace(sortBy))
+        //        sortBy = "Name";
+        //    
+        //    //Returns defaults if parameters are not given in URL
+        //    return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
+        //}
 
-            if (String.IsNullOrWhiteSpace(sortBy))
-                sortBy = "Name";
-            
-            //Returns defaults if parameters are not given in URL
-            return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
+        //Custom route
+        //https://localhost:44341/movies/released/2015/04
+        public ActionResult ByReleaseDate(int year, int month)
+        {
+            return Content(year + "/" + month);
         }
     }
 }
